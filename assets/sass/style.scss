@@ -1,0 +1,467 @@
+$primary-color: #0d59af;
+$header-text: #1565c0;
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin flexbox(
+  $align: flex-start,
+  $justify: flex-start,
+  $flex-direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $flex-direction;
+  flex-wrap: $wrap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // font-family: "Roboto-Black", sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+  /* background-color: $body-color; */
+  position: relative;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.clear {
+  clear: both;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*Bỏ đấu chấm của thẻ li*/
+li {
+  list-style-type: none;
+}
+
+.container1 {
+  max-width: 125rem;
+  margin: auto;
+  padding: 0 0.5rem;
+}
+
+.container {
+  max-width: 110rem;
+  margin: auto;
+  padding: 0 0.5rem;
+}
+
+.header {
+  & .header__contact {
+    height: 3.7rem;
+    @include flexbox(center, space-between);
+    padding: 1rem 6rem 1rem 7.7rem;
+    color: white;
+    background-color: $header-text;
+
+    & .header__contact-left {
+      font-weight: 400;
+    }
+
+    & .header__contact-right a {
+      color: white;
+      font-weight: 400;
+
+      &:not(:last-child) {
+        margin-right: 3rem;
+      }
+    }
+  }
+
+  & .header__title {
+    padding: 1.2rem 6rem 1.2rem 7.7rem;
+    color: white !important;
+    background-color: $primary-color;
+    @include flexbox(center, space-between);
+
+    & .header__title-left {
+      width: 50%;
+      @include flexbox(center, space-between);
+
+      & h1 {
+        font-weight: 500;
+        font-size: 2.8rem;
+      }
+
+      & a {
+        color: white;
+        cursor: pointer;
+
+        &:not(:last-child) {
+          margin-right: 2.2rem;
+        }
+      }
+    }
+
+    & .header__title-right {
+      @include flexbox(flex-end, center, column);
+
+      & span {
+        font-weight: 300;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+.carousel {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.1) 100%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    url(../img/b1.jpg);
+  height: 50rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.advert {
+  margin: 5rem 0;
+
+  & .ad__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2rem;
+    row-gap: 2.7rem;
+
+    & .ad__item:first-child {
+      grid-column: 1 / span 2;
+      grid-row: 1 / span 2;
+    }
+
+    & .ad__item:nth-child(2) {
+      grid-column: 3 / span 2;
+      grid-row: 1 / span 1;
+    }
+
+    & .ad__item:nth-child(3) {
+      grid-column: 3 / span 1;
+      grid-row: 2 / span 1;
+      height: auto;
+    }
+
+    & .ad__item:last-child {
+      grid-column: 4 / span 1;
+      grid-row: 2 / span 1;
+    }
+
+    & .ad__content {
+      object-fit: cover;
+      & span {
+        color: black;
+      }
+
+      // & figure {
+
+      // }
+      & img {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+}
+
+.new-products {
+  background-color: #f9f8f8;
+  // margin: 5rem 0;
+  padding: 2rem 0 5rem;
+
+  & header {
+    & h1 {
+      text-align: center;
+      color: $primary-color;
+    }
+  }
+
+  & .product__list {
+    @include flexbox(stretch, space-between);
+
+    & .product__item {
+      width: 25%;
+      border: 2px solid #ccc;
+      overflow: hidden;
+
+      &:not(:first-child) {
+        margin-left: 1.5rem;
+      }
+    }
+
+    & .product__content {
+      // height: 100%;
+    }
+
+    & .product__img {
+      & img {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    & .product__text {
+      @include flexbox(center, center, column);
+
+      & h2 {
+        font-size: 1.8rem;
+        color: $primary-color;
+        font-weight: 550;
+        margin: 3rem 0 2rem;
+      }
+
+      & h3 {
+        font-weight: 500;
+      }
+
+      & .product__text-price {
+        margin-top: 2rem;
+        font-size: 1.2rem;
+        & span:first-child {
+          color: #858383;
+          text-decoration: line-through #858383;
+        }
+      }
+
+      & button {
+        display: inline-block;
+        margin: 1.5rem 0 1rem;
+        padding: 0.7rem 1.3rem;
+        border: 4px solid #f1a228;
+        color: $header-text;
+      }
+    }
+  }
+}
+
+.discount {
+  color: white;
+
+  & .discount__img {
+    background-image: url(../img/ban1.jpg);
+    height: 50rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: r;
+  }
+
+  & .discount__text {
+    @include flexbox(center, center, column);
+    margin-top: -35rem;
+    position: relative;
+
+    & h2 {
+      font-size: 3.8rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 6rem;
+      font-weight: 400;
+      letter-spacing: 0.2rem;
+
+      &::before {
+        content: "";
+        @include size(100%, 1px);
+        background-color: white;
+        position: absolute;
+        top: 52%;
+        left: 0;
+      }
+    }
+  }
+
+  & .discount-btn {
+    & button {
+      padding: 1rem 1.5rem;
+      color: white;
+      background-color: #f1a228;
+      border: 1px solid transparent;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+.new-arrivals {
+  background-color: #fff;
+  // margin: 5rem 0;
+  padding: 2rem 0 5rem;
+  margin-top: 9rem;
+
+  & header {
+    & h1 {
+      text-align: center;
+      color: $primary-color;
+    }
+  }
+
+  & .arrival__list {
+    @include flexbox(stretch, space-between);
+
+    & .arrival__item {
+      width: 25%;
+      border: 2px solid #ccc;
+      overflow: hidden;
+
+      &:not(:first-child) {
+        margin-left: 1.5rem;
+      }
+    }
+
+    & .arrival__content {
+      // height: 100%;
+    }
+
+    & .arrival__img {
+      & img {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    & .arrival__text {
+      @include flexbox(center, center, column);
+
+      & h2 {
+        font-size: 1.8rem;
+        color: $primary-color;
+        font-weight: 550;
+        margin: 3rem 0 2rem;
+      }
+
+      & h3 {
+        font-weight: 500;
+      }
+
+      & .arrival__text-price {
+        margin-top: 2rem;
+        font-size: 1.2rem;
+        & span:first-child {
+          color: #858383;
+          text-decoration: line-through #858383;
+        }
+      }
+
+      & button {
+        display: inline-block;
+        margin: 1.5rem 0 1rem;
+        padding: 0.7rem 1.3rem;
+        border: 4px solid #f1a228;
+        color: $header-text;
+      }
+    }
+  }
+}
+
+.trend {
+  background-color: #f9f8f8;
+  padding: 2rem 0;
+
+  & header {
+    & h1 {
+      font-weight: 500;
+      color: $primary-color;
+      // text-decoration: line-through white;
+      text-align: center;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 35rem;
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.8);
+        position: absolute;
+        top: 70%;
+        left: 34%;
+        transform: translateY(-70%);
+      }
+    }
+  }
+}
+
+.contact {
+  background-color: $header-text;
+  padding: 4rem 0;
+  color: white;
+  height: 23rem;
+
+  & .contact__list {
+    @include flexbox(stretch, space-between);
+
+    & .contact__item {
+      @include flexbox(center, flex-start, column);
+      width: 25%;
+    }
+
+    & .contact__content {
+      & h2 {
+        margin-bottom: 2rem;
+        font-weight: 500;
+        font-size: 2.5rem;
+      }
+      & a {
+        color: white;
+        font-size: 1.4rem;
+        line-height: 3rem;
+      }
+    }
+
+    & .contact__item:first-child {
+      & p {
+        font-size: 1.4rem;
+      }
+    }
+
+    & .contact__item:nth-child(4) {
+      & h2 {
+        margin-bottom: 2rem;
+      }
+
+      & ul {
+        margin-left: 1rem;
+      }
+
+      & li {
+        font-size: 1.4rem;
+        line-height: 3rem;
+      }
+
+      & i {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: #000;
+  padding: 2rem 0 2.5rem;
+  height: 100%;
+
+  & .footer__content {
+    color: white;
+    @include flexbox(center, space-between);
+  }
+}
