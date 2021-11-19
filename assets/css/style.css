@@ -84,6 +84,7 @@ li {
 .header .header__title .header__title-left h1 {
   font-weight: 500;
   font-size: 2.8rem;
+  cursor: pointer;
 }
 .header .header__title .header__title-left a {
   color: white;
@@ -156,6 +157,7 @@ li {
 .new-products header h1 {
   text-align: center;
   color: #0d59af;
+  font-weight: 500;
 }
 .new-products .product__list {
   display: flex;
@@ -206,6 +208,11 @@ li {
   padding: 0.7rem 1.3rem;
   border: 4px solid #f1a228;
   color: #1565c0;
+  transition: all 0.25s linear;
+}
+.new-products .product__list .product__text button:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .discount {
@@ -266,6 +273,7 @@ li {
 .new-arrivals header h1 {
   text-align: center;
   color: #0d59af;
+  font-weight: 500;
 }
 .new-arrivals .arrival__list {
   display: flex;
@@ -316,11 +324,16 @@ li {
   padding: 0.7rem 1.3rem;
   border: 4px solid #f1a228;
   color: #1565c0;
+  transition: all 0.25s linear;
+}
+.new-arrivals .arrival__list .arrival__text button:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .trend {
   background-color: #f9f8f8;
-  padding: 2rem 0;
+  padding: 2rem 0 4rem;
 }
 .trend header h1 {
   font-weight: 500;
@@ -337,6 +350,58 @@ li {
   top: 70%;
   left: 34%;
   transform: translateY(-70%);
+}
+.trend .trend__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.trend .trend__list .trend__item {
+  width: calc(33.3333333333% - 1.2rem);
+  margin-bottom: 1.5rem;
+}
+.trend .trend__list .trend__item:not(:first-child, :nth-child(4)) {
+  margin-left: 1.2rem;
+}
+.trend .trend__list .trend__item .trend__content {
+  position: relative;
+}
+.trend .trend__list .trend__item .trend__content::before {
+  content: "50%";
+  font-size: 1.3rem;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border-radius: 50%;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: white;
+  background-color: #0d59af;
+}
+.trend .trend__list .trend__item .trend__content::after {
+  content: "Men";
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  color: white;
+  background-color: rgba(21, 101, 192, 0.7);
+}
+.trend .trend__list .trend__item img {
+  width: 100%;
 }
 
 .contact {
